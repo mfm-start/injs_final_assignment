@@ -1,0 +1,8 @@
+POST /register
+POST /login
+
+GET /movies
+
+POST /bookmark/:movieId
+
+GET /mybookmark
