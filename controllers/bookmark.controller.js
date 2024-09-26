@@ -1,10 +1,10 @@
-const { Bookmark } = require("../models");
+const { Bookmark, Movie, User } = require("../models");
 
 
 exports.bookmarklist = async (req, res, next) => {   
     try {
         const bookmarks = await Bookmark.findAll(
-            // {include: [ Movie ]}
+            {include: [ Movie ],}
         );
         if(!bookmarks) throw new NotFoundError();
         res.status(200).json(bookmarks);

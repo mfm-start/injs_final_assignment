@@ -16,8 +16,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Bookmark.init({
-    movieId: DataTypes.STRING,
-    userId: DataTypes.STRING
+    movieId: DataTypes.INTEGER,
+    userId: DataTypes.INTEGER,
   }, {
     sequelize,
     modelName: 'Bookmark',
