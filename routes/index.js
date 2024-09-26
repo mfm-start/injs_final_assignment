@@ -1,3 +1,4 @@
+const { bookmarklist } = require("../controllers/bookmark.controller");
 const router = require("express").Router();
 
 router.use("/movies", require("./movies"));
@@ -11,8 +12,6 @@ router.post("/register");// POST /register
 router.post("/login");// POST /login
 
 // GET /mybookmark
-router.get("/mybookmark", (req, res) => {
-    res.send("my bookmark list per user")
-});
+router.get("/mybookmark", bookmarklist);
 
 module.exports = router;

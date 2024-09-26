@@ -1,6 +1,7 @@
 'use strict';
 const {
-  Model
+  Model,
+  ForeignKeyConstraintError
 } = require('sequelize');
 module.exports = (sequelize, DataTypes) => {
   class Movie extends Model {
@@ -11,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Movie.hasMany(models.Bookmark, { foreignKey: "movieId" });
     }
   }
   Movie.init({

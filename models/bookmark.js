@@ -11,6 +11,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Bookmark.belongsTo(models.Movie, { foreignKey: "movieId"});
+      Bookmark.belongsTo(models.User, { foreignKey: "userId"});
     }
   }
   Bookmark.init({
