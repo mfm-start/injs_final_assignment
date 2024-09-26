@@ -1,4 +1,4 @@
-const { bookmarklist } = require("../controllers/bookmark.controller");
+const { bookmarklist, bookmarkUser } = require("../controllers/bookmark.controller");
 const auth = require("../middlewares/auth.middlewares");
 const router = require("express").Router();
 
@@ -17,6 +17,6 @@ router.get('/', (req, res) => {
 
 
 // GET /mybookmark
-router.get("/mybookmark", bookmarklist);
+router.get("/mybookmark", bookmarkUser);
 
 module.exports = router;

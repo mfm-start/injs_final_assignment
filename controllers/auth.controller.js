@@ -1,10 +1,10 @@
 const { hash, genSalt, compareSync } = require("bcrypt");
 const { User } = require("../models");
-const UnauthenticatedError = require("../errors/UnauthenticatedError");
+const UnauthenticatedError = require("../errors/UnauthenticatedError.js");
 const { sign } = require("jsonwebtoken");
 
 exports.register = async (req, res, next) => {
-  const { name, email, password, gender, phone } = req.body;
+  const { name, email, phoneNumber, username, address, password } = req.body;
 
   try {
     const salt = await genSalt(10);
@@ -12,8 +12,9 @@ exports.register = async (req, res, next) => {
     const user = await User.create({
       name,
       email,
-      gender,
-      phone,
+      phoneNumber,
+      username,
+      address,
       password: hashedPassword,
     });
     res.status(201).json(user);
